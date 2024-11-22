@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Budget Website | Track your Money </title>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- Other code -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+    <meta name="description" content="Effortlessly 
+    manage your finances with our user-friendly Personal 
+    Finance Tracker. Add, edit, and delete transactions with ease, 
+    while tracking your current balance in real-time. Take control 
+    of your money and 
+    start achieving your financial goals today!" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <h1>Budget Buddy</h1>
+          </div>
+          <div class="hamburger-menu">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#track">Track</a></li>
+            <li><a href="#graph-section">Graph</a></li>
+            <li><a href="#reminder-section">Reminder</a></li>
+            <li><a href="About.html" target="_blank">About</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+          </ul>
+        </nav>
+        <ul class="nav-links-hamburger">
+          <li><a href="#track">Track</a></li>
+          <li><a href="#graph-section">Graph</a></li>
+          <li><a href="#reminder-section">Reminder</a></li>
+          <li><a href="About.html" target="_blank">About</a></li>
+          <li><a href="#contact-us">Contact Us</a></li>
+        </ul>
+
+        <!-- home section  -->
+
+      <div class="main" >
+
+        <div class="hero" id="hero">
+          <div class="dis">
+            <h1>Personal Finance Tracker</h1>
+            <p>
+              Effortlessly manage your finances with our user-friendly Personal
+              Finance Tracker. Add, edit, and delete transactions with ease,
+              while tracking your current balance in real-time. Take control of
+              your money and start achieving your financial goals today!
+            </p>
+          </div>
+
+          <div class="img">
+            <img
+              src="https://img.freepik.com/free-vector/people-analyzing-growth-charts_23-2148866843.jpg?w=1060&t=st=1686308109~exp=1686308709~hmac=9a2217459a32dad5dcdddf69da4aed30b2ee542c6e03e66fbadca5046d40195c"
+              alt="reference image"
+            />
+          </div>
+        </div>
+
+        <!-- Track -->
+        <div class="budget" id="track">
+          <h2 class="track-heading track" >Track Your Finance</h2>
+          <div class="sub-container">
+            <!-- Budget -->
+
+            <div class="total-amount-container">
+              <h3>Budget</h3>
+              <p class="hide error" id="budget-error">
+                Value cannot be empty or negative
+              </p>
+              <input
+                type="number"
+                id="total-amount"
+                placeholder="Enter Total Amount"
+              />
+              <button class="submit" id="total-amount-button">
+                Set Budget
+              </button>
+            </div>
+
+            <!-- Expenditure -->
+            <div class="user-amount-container">
+              <h3>Expenses</h3>
+              <p class="hide error" id="product-title-error">
+                Values cannot be empty
+              </p>
+              <input
+                type="text"
+                class="product-title"
+                id="product-title"
+                placeholder="Enter Title of Product"
+              />
+              <input
+                type="number"
+                id="user-amount"
+                placeholder="Enter Cost of Product"
+              />
+              <button class="submit" id="check-amount">Check Amount</button>
+            </div>
+          </div>
+
+          <!-- Output -->
+          <div class="output-container flex-space">
+            <div>
+              <p>Total Budget</p>
+              <span id="amount">0</span>
+            </div>
+            <div>
+              <p>Expenses</p>
+              <span id="expenditure-value">0</span>
+            </div>
+            <div>
+              <p>Balance</p>
+              <span id="balance-amount">0</span>
+            </div>
+          </div>
+
+          <!-- List -->
+          <div class="list">
+            <h3>Expense List</h3>
+            <div class="list-container" id="list"></div>
+          </div>
+        </div>
+
+        <div class="graph-section" id="graph-section">
+          <h2 class="graph-heading">Visualize Your Financial Progress</h2>
+          <p>
+            Track expenses, monitor balance, and make informed 
+            decisions with our interactive bar graph.
+          </p>
+          <canvas
+            class="graph"
+            id="myChart"
+            style="width: 100%; max-width: 600px"
+          ></canvas>
+          <div class="graph-container" id="graph"></div>
+        </div>
+
+        <div class="section-4">
+          <div class="reminder-section" id="reminder-section">
+            <h2>Reminder Section</h2>
+            <p>Add your reminder and never forget to pay your bills on time.</p>
+            <input
+              type="text"
+              id="reminder-name"
+              maxlength="30"
+              placeholder="Reminder Name"
+              required
+            />
+            <input
+              type="date"
+              id="reminder-date"
+              placeholder="Select Date: 2023-06-10"
+              required
+            />
+            <input
+              type="time"
+              id="reminder-time"
+              placeholder="Hour : Minutes"
+              required
+            />
+            <button id="add-reminder-btn">Add Reminder</button>
+          </div>
+
+          <ul id="reminder-list"></ul>
+        </div>
+        
+        <!-- contact us form -->
+        <div class="contact-us" id="contact-us">
+          <h2>Contact Us</h2>
+          <p>Send us your feedback and suggestions.</p>
+          <form action="mailto:amansingh6574@gmail.com" >
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter your name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder="Enter your message"
+              required
+            ></textarea>
+            <button type="submit" name="submit" class="submit">Send Message</button>
+          </form>
+        </div>
+     
+      <!-- html code for footer -->
+        <footer>
+        <div class="footer-container">
+          <div class="footer-logo">
+            <h1>Budget Buddy</h1>
+          </div>
+          
+          <div class="footer-social">
+            <ul>
+              <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="http://www.linkedin.com/in/rinku-gupta-384b07283" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <ul>
+            <li><a href="#track">Home</a></li>
+            <li><a href="#graph-section">Graph</a></li>
+            <li><a href="#reminder-section">Reminder</a></li>
+            <li><a href="About.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-line" ></div>
+
+        <div class="footer-bottom">
+          <div>
+            <p>All rights reserved. &copy; 2023 Budget Buddy</p>
+          </div>
+          <div class="footer-git">
+            <p>Designed by <a href="http://www.linkedin.com/in/rinku-gupta-384b07283" target="_blank">Rinku</a></p>
+            <p class="git-icon"><a href="https://github.com/RinkuGuptaa" target="_blank"><i class="fab fa-github"></i></a></p>
+          </div>
+          
+        </div>
+        
+        </footer>   
+      </div>   
+
+    </div>
+
+    <!-- Script -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  </body>
+</html>
+
